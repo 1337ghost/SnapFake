@@ -54,7 +54,7 @@ function login($username,$password) {
 	curl_setopt($snapchat, CURLOPT_FOLLOWLOCATION, 1);
 	curl_setopt($snapchat, CURLOPT_HTTPHEADER, array(
 		"X-Snapchat-Client-Token: $token",
-		'User-Agent: Snapchat/10.15.0.4 (iPhone6,2; iOS 9.3.3; gzip)',
+		'User-Agent: Snapchat/10.17.0.5 (iPhone6,2; iOS 9.3.2; gzip)',
 		"X-Snapchat-Client-Auth-Token: $auth",
 		'Accept-Language: en-NZ;q=1',
 		'Connection: Keep-Alive'
